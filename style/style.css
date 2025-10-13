@@ -1,0 +1,23 @@
+:root{
+    --color-primary: #000;
+    --color-secondy: #000;
+    --color-tertiary: #000;
+    --color-dark-primary: #000;
+    --color-dark-secondy: #000;
+    --color-dark-tertiary: #000;
+}
+
+*{
+    padding: 4px;
+    margin: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+}
+
+body{
+    background-color: rgb(121, 62, 14);
+}
+
+.cabecalho{
+    border-bottom: 2px solid;
+}
