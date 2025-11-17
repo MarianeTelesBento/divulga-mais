@@ -12,7 +12,7 @@ const eventos = {
     data: '20/11/2025',
     local: 'Marco da Consciência Negra (próximo à Praça dos Estudantes - Centro) Guarulhos-SP',
     descricao: 'Guarulhos Contra o racismo. Por Demobracia e igualdade, reparação e justiça racial.',
-    imagem: 'images/marcha-consciencia.jpeg'
+    imagem: 'images/marcha-consciencia-infos.jpg'
   },
   'Feira de Artesanato': {
     data: '12/11/2025',
@@ -25,6 +25,17 @@ const eventos = {
     local: 'Gramado Central',
     descricao: 'Pratique yoga em contato direto com a natureza. Esta aula ao ar livre é perfeita para relaxar, meditar e conectar-se com o corpo e a mente em um ambiente tranquilo e acolhedor no coração do Ibirapuera.',
     imagem: 'images/yoga-outdoor.jpg'
+  }
+};
+
+const galeria = {
+  'Marcha da Consciência Negra': {
+    descricao: 'Guarulhos Contra o racismo. Por Demobracia e igualdade, reparação e justiça racial.',
+    images: ['images/marcha-consciencia.jpeg', 'images/xxx', 'images/xxx']
+  },
+  'xxx': {
+    descricao: 'xxx',
+    images: ['images/xxx', 'images/xxx', 'images/xxx']
   }
 };
 
@@ -66,6 +77,59 @@ function showEventDetails(eventName) {
   }
 }
 
+function showEventGallery(eventName) {
+    const evento = galeria[eventName]; // Use o objeto eventosGaleria global
+    
+    if (evento) {
+        // 1. Atualizar o título do modal
+        document.getElementById('eventModalLabelGallery').textContent = eventName;
+        
+        const modalBody = document.getElementById('eventModalBodyGallery');
+        
+        // 2. Gerar o HTML das miniaturas
+        let galleryHTML = '<div class="row row-cols-3 g-2">'; // Usando o grid do Bootstrap para miniaturas
+        
+        evento.images.forEach(imagePath => {
+            galleryHTML += `
+                <div class="col">
+                    <img 
+                        src="${imagePath}" 
+                        alt="${eventName}" 
+                        class="img-fluid rounded shadow-sm gallery-thumbnail"
+                        onclick="showFullscreenImage('${imagePath}', '${eventName}')" 
+                        style="cursor: pointer; height: 100px; object-fit: cover;"
+                    >
+                </div>
+            `;
+        });
+        
+        galleryHTML += '</div>';
+
+        // 3. Adicionar a descrição e a galeria ao modal
+        modalBody.innerHTML = `
+            <p style="margin-top: 0; line-height: 1.6;">${evento.descricao}</p>
+            <hr>
+            ${galleryHTML}
+        `;
+        
+        // 4. Mostrar o modal
+        const eventModal = new bootstrap.Modal(document.getElementById('eventModalGallery'));
+        eventModal.show();
+    }
+}
+
+/**
+ * Função para abrir a imagem em tela cheia (usando o FullscreenModal)
+ */
+function showFullscreenImage(imagePath, altText) {
+    // 1. Atualizar o conteúdo do modal de tela cheia
+    const fullscreenBody = document.getElementById('fullscreenModalBody');
+    fullscreenBody.innerHTML = `<img src="${imagePath}" alt="${altText}" class="img-fluid">`;
+
+    // 2. Mostrar o modal de tela cheia
+    const fullscreenModal = new bootstrap.Modal(document.getElementById('fullscreenModal'));
+    fullscreenModal.show();
+}
 // ============================================
 // Função para inscrição em evento
 // ============================================
