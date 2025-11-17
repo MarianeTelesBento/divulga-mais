@@ -8,11 +8,11 @@
 // ============================================
 
 const eventos = {
-  'Festival de Música': {
-    data: '05/11/2025',
-    local: 'Auditório Ibirapuera',
-    descricao: 'Venha aproveitar um dia incrível de música ao vivo com artistas locais e internacionais. O Festival de Música do Ibirapuera é um evento imperdível para os amantes de boa música e diversão em um dos parques mais bonitos de São Paulo.',
-    imagem: 'images/music-festival.jpg'
+  'Marcha da Consciência Negra': {
+    data: '20/11/2025',
+    local: 'Marco da Consciência Negra (próximo à Praça dos Estudantes - Centro) Guarulhos-SP',
+    descricao: 'Guarulhos Contra o racismo. Por Demobracia e igualdade, reparação e justiça racial.',
+    imagem: 'images/marcha-consciencia.jpeg'
   },
   'Feira de Artesanato': {
     data: '12/11/2025',

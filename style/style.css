@@ -303,6 +303,14 @@ footer h6 {
   filter: brightness(0) invert(1);
 }
 
+.logo-divulga{
+  display: flex;
+}
+
+.logo-divulga-mobile{
+  display: none;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .hero-section {
@@ -329,6 +337,14 @@ footer h6 {
   .nav-link {
     margin-left: 0;
     padding: 0.5rem 0;
+  }
+
+  .logo-divulga{
+    display: none;
+  }
+
+  .logo-divulga-mobile{
+    display: flex;
   }
 }
 
